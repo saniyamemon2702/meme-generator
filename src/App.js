@@ -6,10 +6,10 @@ import Meme from './Components/Meme';
 
 function App() {
   return (
-    <>
+    <div>
     <Header />
-    <Meme/>
-    </>
+    <Meme />
+    </div>
 
   );
 }
