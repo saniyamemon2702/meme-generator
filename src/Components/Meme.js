@@ -3,15 +3,28 @@ import React from 'react';
 import memesData from '../memesData';
 export default function Meme(){
 
-    const [memeImage, setMemeImage]=React.useState("");
+    const [meme, setMeme]=React.useState({
+        topText:"",
+        bottomText:"",
+        randomImage:"http://i.imgflip.com/1bij.jpg"
+    });
 
+    const [allMemeImages,setAllMemeImages]=React.useState(memesData);
 
 
 function getMemesImage(){
-    const memesArray=memesData.data.memes;
-    const randomImage= memesArray[Math.floor(Math.random()*memesArray.length)].url;
+    console.log(allMemeImages);
+    const memesArray=allMemeImages.data.memes;
+    const url= memesArray[Math.floor(Math.random()*memesArray.length)].url;
     console.log(randomImage);
-    setMemeImage(randomImage);
+    setMeme(prevMeme=>{
+        return {
+            ...prevMeme,
+            randomImage:url
+        }
+});
+
+    setAllMemeImages()
     // console.log("I m clicked!");
 }
 
@@ -25,7 +38,7 @@ function getMemesImage(){
             <button className=' text-white p-4 col-span-2 rounded-md cursor-pointer bg-gradient-to-br from-purple-900 to-purple-600 ' onClick={getMemesImage}>Get a new meme image&#127751;</button>
         </div>
         <div className='h-1/5'>
-        <img src={memeImage} alt="generated meme" className=' rounded-md mx-auto mt-8 h-96 '></img>
+        <img src={meme.randomImage} alt="generated meme" className=' rounded-md mx-auto mt-8 h-96 '></img>
         </div>
             
         
