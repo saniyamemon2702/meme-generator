@@ -24,7 +24,10 @@ function getMemesImage(){
             </input>
             <button className=' text-white p-4 col-span-2 rounded-md cursor-pointer bg-gradient-to-br from-purple-900 to-purple-600 ' onClick={getMemesImage}>Get a new meme image&#127751;</button>
         </div>
-        <img src={memeImage} alt="generated meme" className='w-11/12 rounded-md mx-auto mt-8 h-4/5 max-w-full'></img>
+        <div className='h-1/5'>
+        <img src={memeImage} alt="generated meme" className=' rounded-md mx-auto mt-8 h-96 '></img>
+        </div>
+            
         
     </main>);
 }
